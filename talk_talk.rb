@@ -15,18 +15,23 @@ class TalkTalk
       next if result.nil?
 
       (result[0]).each do |socket|
+        # handle new client connection
         if socket.eql?(@server_socket)
           accept_new_connection
+
+        # handle the client leaving
         elsif socket.eof?
           str = format("Client #{socket.peeraddr[2]}:#{socket.peeraddr[1]} left\n")
-          broadcast_string(str, socket)
+          broadcast(str, socket)
           socket.close
           @descriptors.delete(socket)
+        
+        # handle an incoming message
         else
           peer_address = socket.peeraddr
           received_data = socket.gets.chomp
           str = "[#{peer_address[2]}|#{peer_address[1]}]: #{received_data}\n"
-          broadcast_string(str, socket)
+          broadcast(str, socket)
         end
       end
     end
@@ -34,7 +39,7 @@ class TalkTalk
 
   private
 
-  def broadcast_string(str, omit_socket)
+  def broadcast(str, omit_socket)
     @descriptors.each do |socket|
       socket.write(str) if socket != @server_socket && socket != omit_socket
     end
@@ -49,7 +54,7 @@ class TalkTalk
     client_socket.write("You're connected to Talk Talk\n")
     peer_address = client_socket.peeraddr
     str = "Client #{peer_address[2]}:#{peer_address[1]} joined\n"
-    broadcast_string(str, client_socket)
+    broadcast(str, client_socket)
   end
 end
 

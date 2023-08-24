@@ -18,12 +18,14 @@ class TalkTalk
         if socket.eql?(@server_socket)
           accept_new_connection
         elsif socket.eof?
-          str = format('Client left %<socket.peeraddr[2]>s: %<socket.peeraddr[1]>s\n')
+          str = format("Client #{socket.peeraddr[2]}:#{socket.peeraddr[1]} left\n")
           broadcast_string(str, socket)
           socket.close
           @descriptors.delete(socket)
         else
-          str = format('[%<socket.peeraddr[2]>s|%<socket.peeraddr[1]>s]: %<socket.gets>s')
+          peer_address = socket.peeraddr
+          received_data = socket.gets.chomp
+          str = "[#{peer_address[2]}|#{peer_address[1]}]: #{received_data}\n"
           broadcast_string(str, socket)
         end
       end
@@ -32,14 +34,23 @@ class TalkTalk
 
   private
 
-  def broadcast_string(str, omit_socket); end
+  def broadcast_string(str, omit_socket)
+    @descriptors.each do |socket|
+      socket.write(str) if socket != @server_socket && socket != omit_socket
+    end
+
+    print(str)
+  end
 
   def accept_new_connection
     client_socket = @server_socket.accept
     @descriptors << client_socket
 
-    client_socket.write('You\'re connected to Talk Talk\n')
-    str = sprintf('Client joined %<client_socket.peeraddr[2]>s: %<client_socket.peeradddr[1]>s\n')
+    client_socket.write("You're connected to Talk Talk\n")
+    peer_address = client_socket.peeraddr
+    str = "Client #{peer_address[2]}:#{peer_address[1]} joined\n"
     broadcast_string(str, client_socket)
   end
 end
+
+TalkTalk.new(8080).run

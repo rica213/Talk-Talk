@@ -1,12 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
+  <h1><b>📞 TALK TALK 🔊</b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -14,201 +9,118 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+- [🛠 Built With](#built-with)
+  - [Tech Stack](#tech-stack)
+- [🃏Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 TALK TALK <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
-
-## 🛠 Built With <a name="built-with"></a>
-
-### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+A chat server called 'TalkTalk' that allows multiple clients to connect and chat with each other. <br>
+It's a great way to understand how networking and basic server-client interactions work.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
+# 🛠 Built With <a name="built-with"></a>
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## Tech Stack <a name="tech-stack"></a>
 
-> Add a link to your deployed project.
+- Ruby: [Socket](https://ruby-doc.org/stdlib-2.5.3/libdoc/socket/rdoc/Socket.html)
 
-- [Live Demo Link](https://google.com)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Features -->
+
+# Key Features <a name="key-features"></a>
+
+- Real-Time Chatting: Users can send and receive messages in real-time within the terminal-based chat interface.
+- Multiple Users: The chat service supports multiple users, allowing individuals to join and participate in group discussions
+- User Identification: Each user is identified by a unique username, making it easy to distinguish messages from different participants.
+- Dynamic Updates: New messages are instantly displayed to users without the need to refresh the interface.
+- Join and Leave Notifications: Users receive notifications when others join or leave the chat.
+- Basic Command Support: Users can enter commands to perform actions like leaving the chat or requesting help.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
-## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
+# 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
 
-### Prerequisites
+## Prerequisites
+In order to run this project you need: <br>
 
-In order to run this project you need:
+- Ruby Installed: You can download it from the [official Ruby website](https://www.ruby-lang.org/en/documentation/installation/).<br>
 
-<!--
-Example command:
+- Terminal: You'll need a terminal or command-line interface to run the chat service.<br>
 
-```sh
- gem install rails
-```
- -->
+## Setup
+Clone this repository to your desired folder:<br>
 
-### Setup
-
-Clone this repository to your desired folder:
-
-<!--
 Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
 ```
---->
-
-### Install
-
+  cd my-folder
+  git clone git@github.com:rica213/talk-talk.git
+```  
+## Install
 Install this project with:
 
-<!--
-Example command:
+  ```
+  cd talk-talk
+  bundle install
+  ```
+## Usage
 
-```sh
-  cd my-project
-  gem install
-```
---->
+  To start the chat server, run the following command:<br>
+  `ruby talk_talk.rb`
 
-### Usage
+  To connect a client to the server, you can use telnet:<br>
+  
+  `telnet localhost 8080`
 
-To run the project, execute the following command:
-
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
-
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
+  To leave the chat, in the telnet prompt, run:<br>
+  `telnet > quit`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+# 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Clarielle Larissa**
 
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@rica213](https://github.com/rica213)
+- Twitter: [@alc3and](https://twitter.com/alc3and)
+- LinkedIn: [Clarielle Larissa](https://linkedin.com/in/larissa-clarielle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a>
+# 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **Handling errors**
+- [ ] **Enhance Security**
+- [ ] **Private Messages**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
-## 🤝 Contributing <a name="contributing"></a>
+# 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
@@ -218,43 +130,23 @@ Feel free to check the [issues page](../../issues/).
 
 <!-- SUPPORT -->
 
-## ⭐️ Show your support <a name="support"></a>
+# ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project kindly give it a **STAR**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
+# 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
+I would like to thank **you** for being interested in my work 🖤
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
-## 📝 License <a name="license"></a>
+# 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
 

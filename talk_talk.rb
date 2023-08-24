@@ -13,6 +13,7 @@ class TalkTalk
     loop do
       result = select(@descriptors, nil, nil, nil)
       next if result.nil?
+
       (result[0]).each do |socket|
         if socket.eql?(@server_socket)
           accept_new_connection
@@ -31,11 +32,14 @@ class TalkTalk
 
   private
 
-  def broadcast_string(str, omit_socket)
-    
-  end
+  def broadcast_string(str, omit_socket); end
 
   def accept_new_connection
+    client_socket = @server_socket.accept
+    @descriptors << client_socket
 
+    client_socket.write('You\'re connected to Talk Talk\n')
+    str = sprintf('Client joined %<client_socket.peeraddr[2]>s: %<client_socket.peeradddr[1]>s\n')
+    broadcast_string(str, client_socket)
   end
 end
